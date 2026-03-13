@@ -1,0 +1,18 @@
+
+select * from (select distinct hsp.GUAR_SSN as GUARANTOR_SSN ,
+p.SSN as ASSOCIATED_PT_SSN , pt.SSN as PATIENT_SSN, hsp.GUAR_DOB as GUARANTOR_DOB ,p.BIRTH_DATE ASSOCIATED_DOB,UPPER(GUAR_ADDR_1) as GUARANTOR_ADDRESS ,  UPPER(p.Add_Line_1)as ASSOCIATED_ADDRESS ,
+hsp.HSP_ACCOUNT_ID,hsp.HSP_ACCOUNT_NAME ,hsp.Guar_name as GUARANTOR_NAME,hsp.PATIENT_MRN,hsp.PAT_NAME,p.PAT_NAME  as ASSOCIATED_PT_NAME,
+ZC_Type.NAME as ACCOUNT_TYPE,dep.DEPT_ABBREVIATION DEPT,dep.DEPARTMENT_NAME
+,CASE WHEN hsp.GUAR_SSN<> p.SSN    AND   hsp.GUAR_DOB  <> p.BIRTH_DATE  and  UPPER(GUAR_ADDR_1) <> UPPER(p.Add_Line_1) THEN   1 WHEN acc.SSN <> p.SSN    AND   acc.BIRTHDATE =  p.BIRTH_DATE THEN 2 ELSE 0 end Flag 
+from HSP_ACCOUNT  hsp join account  acc on hsp.GUARANTOR_ID=acc.ACCOUNT_ID 
+left join ACCT_GUAR_PAT_INFO  info on acc.ACCOUNT_ID =info.ACCOUNT_ID
+left JOIN HSP_ACCT_SBO  SBO on SBO.HSP_ACCOUNT_ID=HSP.HSP_ACCOUNT_ID
+left join patient pt on hsp.PAT_ID=pt.PAT_ID
+left Join Patient p on acc.PAT_REC_OF_GUAR_ID=p.PAT_ID
+left join ZC_ACCOUNT_TYPE ZC_Type  on acc.ACCOUNT_TYPE_C =ZC_Type.ACCOUNT_TYPE_C
+join PAT_ENC ENC on hsp.PRIM_ENC_CSN_ID=ENC.PAT_ENC_CSN_ID
+join Clarity_dep dep on ENC.EFFECTIVE_DEPT_ID=dep.department_id
+where acc.SSN <> p.SSN 
+and (TRUNC( MONTHS_BETWEEN( sysdate, hsp.PAT_DOB ) /12 )<18 OR   TRUNC( MONTHS_BETWEEN( hsp.DISCH_DATE_TIME,  pt.BIRTH_DATE ) /12 ) is null)
+and SBO_TOT_BALANCE >0  ) where  Flag=1
+GO
