@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34930.48
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "CuratedSurgeryAscMetricFactCurrent_Load_X", "CuratedSurgeryASCCurrent_Load_X\CuratedSurgeryAscMetricFactCurrent_Load_X.dtproj", "{C8D8149E-74FA-478A-A118-2DC28E4EAC12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8D8149E-74FA-478A-A118-2DC28E4EAC12}.Development|Default.ActiveCfg = Development
+		{C8D8149E-74FA-478A-A118-2DC28E4EAC12}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C589D4FE-5A40-42DD-8CDC-7719CB0F5FCE}
+	EndGlobalSection
+EndGlobal

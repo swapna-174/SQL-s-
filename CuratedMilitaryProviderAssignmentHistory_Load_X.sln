@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "CuratedMilitaryProviderAssignmentHistory_Load_X", "Integration Services Project1\CuratedMilitaryProviderAssignmentHistory_Load_X.dtproj", "{C90DA402-BFDF-4BDC-ADE5-9F13331DED16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C90DA402-BFDF-4BDC-ADE5-9F13331DED16}.Development|Default.ActiveCfg = Development
+		{C90DA402-BFDF-4BDC-ADE5-9F13331DED16}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {938CB061-7D3C-4161-B7E6-67A1880E7145}
+	EndGlobalSection
+EndGlobal
